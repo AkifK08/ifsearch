@@ -1,6 +1,6 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import Speech from 'react-speech';
+import { useSpeechSynthesis } from 'react-speech-kit';
 import { FaMicrophone, FaArrowAltCircleRight } from "react-icons/fa";
 const Dictaphone = () => {
     const {
@@ -10,6 +10,7 @@ const Dictaphone = () => {
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
     const [text, setText] = React.useState("");
+    const { speak } = useSpeechSynthesis();
     const [list, setList] = React.useState([{
         text: "Welcome to iField Search Engine",
         id: 0,
@@ -129,7 +130,6 @@ const Dictaphone = () => {
                                                     </button>
                                                 )
                                             }) : null
-
                                     }
                                 </div>
                             </>
